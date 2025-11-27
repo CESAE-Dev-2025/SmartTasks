@@ -103,6 +103,7 @@ let completedCount = document.getElementById("completedCount");
 // ---------------------------------- Quote -----------------------------------
 let quote = document.querySelector("#quote p");
 let quoteAuthor = document.querySelector("#quote .quote-author");
+let quoteUpdateTimer;
 
 // ---------------------------------- Tasks -----------------------------------
 let taskList = document.getElementById("taskList");
@@ -203,6 +204,16 @@ function updateStatistics() {
     }
     activeCount.textContent = activeTasks;
     completedCount.textContent = completedTasks;
+}
+
+// ----------------------------------- Quote ----------------------------------
+function updateQuote() {
+    fetch("https://motivational-spark-api.vercel.app/api/quotes/random")
+        .then((response) => response.json())
+        .then((data) => {
+            quote.textContent = data.quote;
+            quoteAuthor.textContent = data.author;
+        });
 }
 
 // ---------------------------------- Tasks -----------------------------------
@@ -359,27 +370,17 @@ addTaskForm.addEventListener("submit", newTask);
 for (const filter of filterButtons.children) {
     filter.addEventListener("click", filterTasks);
 }
-
-// TODO: Adicionar API de citações
-document.getElementById("cat-fact").addEventListener("click", (e) => {
-    fetch("https://catfact.ninja/fact")
-        .then((response) => response.json())
-        .then((data) => {
-            let p = document.createElement("p");
-            p.textContent = data.fact;
-            document.getElementById("fact").appendChild(p);
-        });
-});
 // ----------------------------------------------------------------------------
 
 // ----------------------------------------------------------------------------
-// ------------------------------------------------------------- Function calls
+// ----------------------------------------------------- Startup Function Calls
 // ----------------------------------------------------------------------------
 handleEmptyState();
 tasks.forEach((task) => renderTask(task));
-// updateStatistics();
 updateDateTime();
-setInterval(updateDateTime, 3600);
+setInterval(updateDateTime, 60000);
+updateQuote();
+setInterval(updateQuote, 300000);
 // ----------------------------------------------------------------------------
 
 // TODO: Adicionar API de imagens (unsplash?)
