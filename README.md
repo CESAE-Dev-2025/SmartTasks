@@ -185,6 +185,7 @@ Agradeço também aos mantenedores dos projetos listados abaixo:
 * [Img Shields](https://shields.io)
 * [Bootstrap](https://getbootstrap.com)
 * [GitHub Pages](https://pages.github.com)
+* [Motivational Spark API](https://motivational-spark-api.vercel.app/)
 
 <p align="right">(<a href="#readme-top">voltar ao topo</a>)</p>
 
