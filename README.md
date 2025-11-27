@@ -105,12 +105,12 @@ Aqui podes:
 Este projeto foi desenvolvido com uso das tecnologias listadas abaixo, a partir de um layout do Figma (
 [https://www.figma.com/make/MUhnSr4n3jPjvvEefFdzvW/Task-Management-System?node-id=0-4](https://www.figma.com/make/MUhnSr4n3jPjvvEefFdzvW/Task-Management-System?node-id=0-4)).
 
-<!-- TODO: Add used APIs (for map and mail service) -->
 <p align="center">
   <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5">
   <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3">
   <img src="https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white" alt="Bootstrap">
   <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript">
+  <img src="https://img.shields.io/badge/✨ QuotesAPI-492FF6?style=for-the-badge&logo=QuotesAPI&logoColor=purple" alt="MotivationalSparksAPI">
 </p>
 
 <p align="right">(<a href="#readme-top">voltar ao topo</a>)</p>
@@ -179,13 +179,12 @@ Link do Projeto: [https://github.com/CESAE-Dev-2025/SmartTask](https://github.co
 Agradeçemos ao [CESAE](https://cesaedigital.pt/fldrSite/default.aspx) pela oportunidade de crescimento e à [Sara Monteiro](https://github.com/SaraBarrett) pelo desafio.
 
 Agradeço também aos mantenedores dos projetos listados abaixo:
-<!-- TODO: Adicionar links das APIs utilizadas para 'quotes' -->
 * [Choose an Open Source License](https://choosealicense.com)
 * [Best README Template](https://github.com/othneildrew/Best-README-Template)
 * [Img Shields](https://shields.io)
 * [Bootstrap](https://getbootstrap.com)
 * [GitHub Pages](https://pages.github.com)
-* [Motivational Spark API](https://motivational-spark-api.vercel.app/)
+* [Quotes API](https://motivational-spark-api.vercel.app/)
 
 <p align="right">(<a href="#readme-top">voltar ao topo</a>)</p>
 
