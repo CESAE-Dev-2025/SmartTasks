@@ -37,6 +37,7 @@ O projecto e sua defesa vale 50% da nota
 
 // -------------------------------- Language ----------------------------------
 let selectedLocale = document.documentElement.getAttribute("data-lang");
+const lang = { EN: "en", PT: "pt" };
 let appTexts = [
     { selector: "h1", en: "Task Manager", pt: "Gestor de Tarefas" },
     {
@@ -87,6 +88,7 @@ let appTexts = [
 ];
 
 // ---------------------------------- Theme -----------------------------------
+const theme = { DARK: "dark", LIGHT: "light" };
 let themeToggle = document.getElementById("themeToggle");
 let languageToggle = document.getElementById("languageToggle");
 
@@ -128,7 +130,7 @@ const filterButtons = document.getElementById("filterButtons");
 function updateLocale() {
     for (item of appTexts) {
         let currentElement = document.querySelector(item.selector);
-        let localeText = selectedLocale == "en" ? item.en : item.pt;
+        let localeText = selectedLocale == length.EN ? item.en : item.pt;
 
         if (currentElement.tagName.toLowerCase() === "input") {
             currentElement.setAttribute("placeholder", localeText);
@@ -140,11 +142,11 @@ function updateLocale() {
 }
 
 function toggleLanguage() {
-    selectedLocale = selectedLocale == "en" ? "pt" : "en";
-    if (selectedLocale == "en") {
-        document.documentElement.setAttribute("data-lang", "en");
+    selectedLocale = selectedLocale == lang.EN ? lang.PT : lang.EN;
+    if (selectedLocale == lang.EN) {
+        document.documentElement.setAttribute("data-lang", lang.EN);
     } else {
-        document.documentElement.setAttribute("data-lang", "pt");
+        document.documentElement.setAttribute("data-lang", lang.PT);
     }
     updateLocale();
 }
@@ -152,10 +154,10 @@ function toggleLanguage() {
 // ---------------------------------- Theme -----------------------------------
 function thoggletheme() {
     let currentTheme = document.documentElement.getAttribute("data-bs-theme");
-    if (currentTheme == "dark") {
-        document.documentElement.setAttribute("data-bs-theme", "light");
+    if (currentTheme == theme.DARK) {
+        document.documentElement.setAttribute("data-bs-theme", theme.LIGHT);
     } else {
-        document.documentElement.setAttribute("data-bs-theme", "dark");
+        document.documentElement.setAttribute("data-bs-theme", theme.DARK);
     }
 }
 
@@ -270,7 +272,6 @@ function renderTask(itemToRender) {
 
 function editTask() {
     // TODO: Organizar código de edição
-    // TODO: Previnir nova edição durante edição
     let currentCard = this.parentElement.parentElement.parentElement;
     let currentTask = {
         id: currentCard.getAttribute("data-task-id"),
@@ -283,6 +284,13 @@ function editTask() {
     );
 
     currentCard.classList.add("d-none");
+    for (const child of taskList.children) {
+        let childId = child.getAttribute("data-task-id");
+        console.log(child);
+        if (childId != currentTask.id) {
+            child.setAttribute("style", "pointer-events:none");
+        }
+    }
 
     taskInput.setAttribute("data-task-id", currentTask.id);
     taskInput.setAttribute("data-task-index", currentTaskIndex);
@@ -342,6 +350,7 @@ function handleTask(e) {
 
                 child.classList.remove("d-none");
             }
+            child.setAttribute("style", "pointer-events:auto");
         }
         taskInput.setAttribute("data-task-id", "");
         taskInput.setAttribute("data-task-index", 0);
@@ -500,7 +509,5 @@ for (const filter of filterButtons.children) {
 }
 
 // --------------------------------- Startup ----------------------------------
-window.addEventListener("load", (event) => {
-    startupActions();
-});
+window.addEventListener("load", startupActions);
 // ----------------------------------------------------------------------------
