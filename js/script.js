@@ -298,8 +298,13 @@ function editTask() {
 function handleTask(e) {
     e.preventDefault();
 
-    let taskId = taskInput.getAttribute("data-task-id");
     let formData = new FormData(e.target);
+    let taskId = taskInput.getAttribute("data-task-id");
+    let taskText = formData.get("task-item").trim();
+    if (taskText.length < 5) {
+        // TODO: Mostrar aviso em toast
+        return;
+    }
 
     if (taskId == 0) {
         // Nova tarefa
@@ -349,6 +354,7 @@ function handleTask(e) {
             .forEach((item) => item.classList.add("d-none"));
     }
 
+    // TODO: Mostrar aviso em toast
     e.target.reset();
     handleEmptyState();
 }
