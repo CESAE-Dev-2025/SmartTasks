@@ -130,7 +130,7 @@ const filterButtons = document.getElementById("filterButtons");
 function updateLocale() {
     for (item of appTexts) {
         let currentElement = document.querySelector(item.selector);
-        let localeText = selectedLocale == length.EN ? item.en : item.pt;
+        let localeText = selectedLocale == lang.EN ? item.en : item.pt;
 
         if (currentElement.tagName.toLowerCase() === "input") {
             currentElement.setAttribute("placeholder", localeText);
@@ -143,6 +143,7 @@ function updateLocale() {
 
 function toggleLanguage() {
     selectedLocale = selectedLocale == lang.EN ? lang.PT : lang.EN;
+
     if (selectedLocale == lang.EN) {
         document.documentElement.setAttribute("data-lang", lang.EN);
     } else {
