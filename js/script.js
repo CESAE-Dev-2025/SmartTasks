@@ -152,7 +152,7 @@ function toggleLanguage() {
 }
 
 // ---------------------------------- Theme -----------------------------------
-function thoggletheme() {
+function thoggleTheme() {
     let currentTheme = document.documentElement.getAttribute("data-bs-theme");
     if (currentTheme == theme.DARK) {
         document.documentElement.setAttribute("data-bs-theme", theme.LIGHT);
@@ -499,7 +499,7 @@ function startupActions() {
 languageToggle.addEventListener("click", toggleLanguage);
 
 // ---------------------------------- Theme -----------------------------------
-themeToggle.addEventListener("click", thoggletheme);
+themeToggle.addEventListener("click", thoggleTheme);
 
 // ---------------------------------- Tasks -----------------------------------
 taskForm.addEventListener("submit", handleTask);
