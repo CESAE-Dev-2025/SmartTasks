@@ -50,11 +50,20 @@ let appTexts = [
         pt: "Tarefas Completadas",
     },
     {
-        selector: "#addTaskForm input",
+        selector: "#taskForm input",
         en: "Add a new task...",
         pt: "Adicione nova tarefa...",
     },
-    { selector: "#addTaskForm button span", en: "Add", pt: "Adicionar" },
+    {
+        selector: "#taskForm button span.add-task",
+        en: "Add",
+        pt: "Adicionar",
+    },
+    {
+        selector: "#taskForm button span.update-task",
+        en: "Update",
+        pt: "Atualizar",
+    },
     {
         selector: "#filterButtons button:nth-of-type(1)",
         en: "All",
@@ -100,7 +109,7 @@ let quote = document.querySelector("#quote p");
 let quoteAuthor = document.querySelector("#quote .quote-author");
 
 // ---------------------------------- Tasks -----------------------------------
-let addTaskForm = document.getElementById("addTaskForm");
+let taskForm = document.getElementById("taskForm");
 let taskList = document.getElementById("taskList");
 let emptyState = document.getElementById("emptyState");
 let currentId;
@@ -259,21 +268,86 @@ function renderTask(itemToRender) {
     updateStatistics();
 }
 
-function newTask(e) {
+function editTask() {
+    // TODO: Organizar código de edição
+    // TODO: Previnir nova edição durante edição
+    let currentCard = this.parentElement.parentElement.parentElement;
+    let currentTask = {
+        id: currentCard.getAttribute("data-task-id"),
+        text: currentCard.querySelector(".task-text").textContent,
+        completed: currentCard.querySelector(".task-checkbox").checked,
+    };
+
+    let currentTaskIndex = tasks.indexOf(
+        tasks.find((item) => item.id == currentTask.id)
+    );
+
+    currentCard.classList.add("d-none");
+
+    taskInput.setAttribute("data-task-id", currentTask.id);
+    taskInput.setAttribute("data-task-index", currentTaskIndex);
+    taskInput.value = currentTask.text;
+    taskForm
+        .querySelectorAll(".add-task")
+        .forEach((item) => item.classList.add("d-none"));
+    taskForm
+        .querySelectorAll(".update-task")
+        .forEach((item) => item.classList.remove("d-none"));
+}
+
+function handleTask(e) {
     e.preventDefault();
 
+    let taskId = taskInput.getAttribute("data-task-id");
     let formData = new FormData(e.target);
-    let newTask = {
-        id: currentId,
-        text: formData.get("task-item"),
-        completed: false,
-    };
-    tasks.push(newTask);
 
-    localStorage.setItem("tasks", JSON.stringify(tasks));
-    localStorage.setItem("currentId", currentId++);
+    if (taskId == 0) {
+        // Nova tarefa
+        let newTask = {
+            id: currentId,
+            text: formData.get("task-item"),
+            completed: false,
+        };
+        tasks.push(newTask);
 
-    renderTask(newTask);
+        localStorage.setItem("tasks", JSON.stringify(tasks));
+        localStorage.setItem("currentId", currentId++);
+
+        renderTask(newTask);
+    } else {
+        // Tarefa existente
+        let currentTask = {
+            id: taskId,
+            text: formData.get("task-item"),
+            completed: taskInput.getAttribute("data-completed"),
+        };
+
+        let currentTaskIndex = tasks.indexOf(
+            tasks.find((item) => item.id == currentTask.id)
+        );
+        tasks[currentTaskIndex].text = currentTask.text;
+
+        localStorage.setItem("tasks", JSON.stringify(tasks));
+
+        for (const child of taskList.children) {
+            let childId = child.getAttribute("data-task-id");
+            if (childId == taskId) {
+                child.querySelector(".task-text").textContent =
+                    currentTask.text;
+
+                child.classList.remove("d-none");
+            }
+        }
+        taskInput.setAttribute("data-task-id", "");
+        taskInput.setAttribute("data-task-index", 0);
+
+        taskForm
+            .querySelectorAll(".add-task")
+            .forEach((item) => item.classList.remove("d-none"));
+        taskForm
+            .querySelectorAll(".update-task")
+            .forEach((item) => item.classList.add("d-none"));
+    }
 
     e.target.reset();
     handleEmptyState();
@@ -292,11 +366,6 @@ function deleteTask() {
     removeTaskById(taskId);
     taskCard.remove();
     handleEmptyState();
-}
-
-function editTask() {
-    // TODO: Implementar edição
-    console.log("Editar tarefa!");
 }
 
 // ---------------------------------- Filter ----------------------------------
@@ -416,7 +485,7 @@ languageToggle.addEventListener("click", toggleLanguage);
 themeToggle.addEventListener("click", thoggletheme);
 
 // ---------------------------------- Tasks -----------------------------------
-addTaskForm.addEventListener("submit", newTask);
+taskForm.addEventListener("submit", handleTask);
 
 // ---------------------------------- Filter ----------------------------------
 for (const filter of filterButtons.children) {

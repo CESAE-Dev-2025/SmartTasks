@@ -88,17 +88,17 @@
                 </div>
             </div>
 
-            <!-- Add Task Form -->
+            <!-- Task Form -->
             <div class="card mb-4">
                 <div class="card-body">
-                    <form id="addTaskForm" class="d-flex gap-2">
+                    <form id="taskForm" class="d-flex gap-2">
                         <input name="task-item" type="text" id="taskInput" placeholder="Add a new task..."
-                            class="form-control" />
+                            class="form-control" data-task-id="0" />
                         <button type="submit" class="btn btn-primary d-flex align-items-center gap-2 text-nowrap">
-                            <i class="bi bi-plus-lg"></i>
-                            <!-- TODO: Mudar ícone em modo de edição -->
-                            <i class="bi bi-save d-none"></i>
-                            <span>Add</span>
+                            <i class="bi bi-plus-lg add-task"></i>
+                            <span class="add-task">Add</span>
+                            <i class="bi bi-save update-task d-none"></i>
+                            <span class="update-task d-none">Update</span>
                         </button>
                     </form>
                 </div>
