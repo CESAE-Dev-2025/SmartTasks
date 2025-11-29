@@ -19,6 +19,7 @@
 .task-actions {
     opacity: 0;
     transition: opacity 0.2s ease;
+    min-width: 72px;
 }
 
 .task-item:hover .task-actions {
