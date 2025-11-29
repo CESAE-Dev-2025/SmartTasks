@@ -73,9 +73,9 @@ Por fim, a aplicação possui 2 idiomas disponíveis:
 #### Temas em Inglês
 
 <p>
-  <img src="images/screenshot_dark_en.png" style="width: 370px" alt="Dark Mode">
+  <img src="images/screenshot_dark_en.png" style="width: 390px" alt="Dark Mode">
     &nbsp;&nbsp;&nbsp;
-  <img src="images/screenshot_light_en.png" style="width: 370px" alt="Light Mode">
+  <img src="images/screenshot_light_en.png" style="width: 390px" alt="Light Mode">
 </p>
 
 #### Temas em Português
