@@ -48,7 +48,7 @@ let appTexts = [
     {
         selector: "#statistics > :nth-child(2) p",
         en: "Completed Tasks",
-        pt: "Tarefas Completadas",
+        pt: "Tarefas Concluídas",
     },
     {
         selector: "#taskForm input",
@@ -78,7 +78,7 @@ let appTexts = [
     {
         selector: "#filterButtons button:nth-of-type(3)",
         en: "Completed",
-        pt: "Completadas",
+        pt: "Concluídas",
     },
     {
         selector: "#emptyState p",
