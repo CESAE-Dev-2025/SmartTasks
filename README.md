@@ -47,8 +47,7 @@
 
 <!-- ABOUT THE PROJECT -->
 ## Sobre o Projecto
-
-<img src="images/screenshot_cover.png" style="width: 520px" alt="SmartTasks Screenshot">
+<p align="center"><img src="images/screenshot_cover.png" style="width: 520px" alt="SmartTasks Screenshot"></p>
 
 Esse projeto apresenta uma ferramenta de gestão inteligente (e simples) de tarefas. É composto por uma única página e faz uso dos recurso locais do seu browser.
 
