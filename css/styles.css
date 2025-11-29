@@ -5,6 +5,9 @@
 /*                                                                                      */
 /****************************************************************************************/
 
+.toast-header img {
+    height: 1.5rem;
+}
 /***                                                             Task item hover effect */
 .task-item {
     transition: box-shadow 0.2s ease;

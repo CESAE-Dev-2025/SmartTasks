@@ -73,6 +73,21 @@ let appTexts = [
         en: "Update",
         pt: "Atualizar",
     },
+    // {
+    //     selector: ".toast-body.add",
+    //     en: "Task added succefully",
+    //     pt: "Tarefa adicionada com sucesso",
+    // },
+    // {
+    //     selector: ".toast-body.update",
+    //     en: "Task updated succefully",
+    //     pt: "Tarefa atualizada com sucesso",
+    // },
+    // {
+    //     selector: ".toast-body.remove",
+    //     en: "Task removed succefully",
+    //     pt: "Tarefa removida com sucesso",
+    // },
     {
         selector: "#filterButtons button:nth-of-type(1)",
         en: "All",
@@ -92,6 +107,24 @@ let appTexts = [
         selector: "#emptyState p",
         en: "No tasks yet. Add one to get started!",
         pt: "Sem tarefas. Adicione uma para iniciar!",
+    },
+];
+
+const notificationTexts = [
+    {
+        action: "add",
+        en: "Task added succefully",
+        pt: "Tarefa adicionada com sucesso",
+    },
+    {
+        action: "update",
+        en: "Task updated succefully",
+        pt: "Tarefa atualizada com sucesso",
+    },
+    {
+        action: "remove",
+        en: "Task removed succefully",
+        pt: "Tarefa removida com sucesso",
     },
 ];
 
@@ -128,6 +161,10 @@ let taskItem;
 
 // ---------------------------------- Filter ----------------------------------
 const filterButtons = document.getElementById("filterButtons");
+
+// ------------------------------ Notifications -------------------------------
+const toastTrigger = document.querySelector("#taskForm button");
+const notificationToast = document.getElementById("notificationToast");
 // ----------------------------------------------------------------------------
 
 // ----------------------------------------------------------------------------
@@ -276,8 +313,7 @@ function toggleCheckbox() {
 }
 
 function renderTask(itemToRender) {
-    let newItem = new DOMParser().parseFromString(taskItem, "text/html").body
-        .firstElementChild;
+    let newItem = taskItem.cloneNode(true);
 
     newItem.setAttribute("data-task-id", itemToRender.id);
     newItem.querySelector(".task-text").textContent = itemToRender.text;
@@ -385,7 +421,7 @@ function addTask(formData) {
 
 function handleTask(e) {
     e.preventDefault();
-
+    let notificationText;
     if (!taskForm.checkValidity()) {
         e.preventDefault();
         e.stopPropagation();
@@ -397,11 +433,11 @@ function handleTask(e) {
         if (taskId == 0) {
             // Nova tarefa
             addTask(formData);
-            // TODO: Mostrar aviso de adição em toast
+            showNotification("add");
         } else {
             // Tarefa existente
             updateTask(taskId, formData);
-            // TODO: Mostrar aviso de edição em toast
+            showNotification("update");
         }
         taskForm.classList.remove("was-validated");
         taskForm.reset();
@@ -423,7 +459,7 @@ function deleteTask() {
     taskCard.remove();
     updateStatistics();
     handleEmptyState();
-    // TODO: Mostrar aviso de remoção em toast
+    showNotification("remove");
 }
 
 // ---------------------------------- Filter ----------------------------------
@@ -484,6 +520,26 @@ function addTestData() {
     tasks.forEach((task) => renderTask(task));
 }
 
+// ------------------------------ Notifications -------------------------------
+function getToastMessage(currentAction) {
+    let message = "Nofification message not found... :(";
+
+    for (item of notificationTexts) {
+        if (item.action == currentAction) {
+            return item[selectedLocale];
+        }
+    }
+    return message;
+}
+
+function showNotification(action) {
+    let message = getToastMessage(action);
+    notificationToast.querySelector(".toast-body").textContent = message;
+    const toastBootstrap =
+        bootstrap.Toast.getOrCreateInstance(notificationToast);
+    toastBootstrap.show();
+}
+
 // --------------------------------- Startup ----------------------------------
 function getLastId() {
     if (tasks.length > 1) {
@@ -499,22 +555,9 @@ function startupActions() {
     updateLocale();
     tasks = JSON.parse(localStorage.getItem("tasks")) || [];
     currentId = 1;
-    // TODO: Mover HTML para index.html
-    taskItem = `
-    <div class="card mb-2 task-item" data-task-id="" data-completed="false">
-        <div class="card-body d-flex align-items-center gap-3">
-            <input type="checkbox" class="form-check-input mt-0 task-checkbox"/>
-            <span class="flex-grow-1 task-text"></span>
-            <div class="task-actions">
-                <button class="btn btn-sm btn-outline-secondary me-1 edit-btn" aria-label="Edit task">
-                    <i class="bi bi-pencil-square"></i>
-                </button>
-                <button class="btn btn-sm btn-outline-danger delete-btn" aria-label="Delete task">
-                    <i class="bi bi-trash"></i>
-                </button>
-            </div>
-        </div>
-    </div>`;
+
+    taskItem = taskList.querySelector(".task-item");
+    taskItem.remove();
 
     if (tasks.length > 0) {
         tasks.forEach((task) => renderTask(task));
@@ -550,6 +593,8 @@ taskForm.addEventListener("submit", handleTask);
 for (const filter of filterButtons.children) {
     filter.addEventListener("click", filterTasks);
 }
+
+// ------------------------------ Notifications -------------------------------
 
 // --------------------------------- Startup ----------------------------------
 window.addEventListener("load", startupActions);
