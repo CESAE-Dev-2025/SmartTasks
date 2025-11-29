@@ -19,16 +19,6 @@ Sistema completo de gestão de tarefas com as seguintes funcionalidades:
 
 Entrega através de zip com o vosso nome ou link para o GitHub.
 
-Avaliação:
-  - Realização das funcionalidades propostas e defesa: 17v
-  - Criatividade e Extras (funcionalidades): 2v
-  - Boas práticas de programação e organização de código (1v)
-
-Nota: a nota dos items anteriores só é validada com a explicação da mesma
-      (apresentação do trabalho).
-
-O projecto e sua defesa vale 50% da nota 
-(outros 50% participação em aula e tarefas intermédias)
 */
 
 // ----------------------------------------------------------------------------
