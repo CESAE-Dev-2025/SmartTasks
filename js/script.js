@@ -36,7 +36,7 @@ O projecto e sua defesa vale 50% da nota
 // ----------------------------------------------------------------------------
 
 // -------------------------------- Language ----------------------------------
-let selectedLocale = document.documentElement.getAttribute("data-lang");
+let selectedLocale = document.documentElement.getAttribute("lang");
 const lang = { EN: "en", PT: "pt" };
 let appTexts = [
     { selector: "h1", en: "Task Manager", pt: "Gestor de Tarefas" },
@@ -145,9 +145,9 @@ function toggleLanguage() {
     selectedLocale = selectedLocale == lang.EN ? lang.PT : lang.EN;
 
     if (selectedLocale == lang.EN) {
-        document.documentElement.setAttribute("data-lang", lang.EN);
+        document.documentElement.setAttribute("lang", lang.EN);
     } else {
-        document.documentElement.setAttribute("data-lang", lang.PT);
+        document.documentElement.setAttribute("lang", lang.PT);
     }
     updateLocale();
 }
