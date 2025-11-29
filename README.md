@@ -81,25 +81,25 @@ Por fim, a aplicação possui 2 idiomas disponíveis:
 #### Temas em Português
 
 <p>
-  <img src="images/screenshot_dark_pt.png" style="width: 430px" alt="Tema escuro">
+  <img src="images/screenshot_dark_pt.png" style="width: 390px" alt="Tema escuro">
     &nbsp;&nbsp;&nbsp;
-  <img src="images/screenshot_light_pt.png" style="width: 430px" alt="Tema Claro">
+  <img src="images/screenshot_light_pt.png" style="width: 390px" alt="Tema Claro">
 </p>
 
 #### Filtros
 
 <p>
-  <img src="images/screenshot_light_en_active.png" style="width: 430px" alt="Filtro por tarefas activas">
+  <img src="images/screenshot_light_en_active.png" style="width: 390px" alt="Filtro por tarefas activas">
     &nbsp;&nbsp;&nbsp;
-  <img src="images/screenshot_light_en_completed.png" style="width: 430px" alt="Filtro por tarefas concluídas">
+  <img src="images/screenshot_light_en_completed.png" style="width: 390px" alt="Filtro por tarefas concluídas">
 </p>
 
 #### Validação e notificação
 
 <p>
-  <img src="images/screenshot_light_en_validation.png" style="width: 430px" alt="Tema escuro">
+  <img src="images/screenshot_light_en_validation.png" style="width: 390px" alt="Tema escuro">
     &nbsp;&nbsp;&nbsp;
-  <img src="images/screenshot_light_en_toast.png" style="width: 430px" alt="Tema Claro">
+  <img src="images/screenshot_light_en_toast.png" style="width: 390px" alt="Tema Claro">
 </p>
 
 <p align="right">(<a href="#readme-top">voltar ao topo</a>)</p>
