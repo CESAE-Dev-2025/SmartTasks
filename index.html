@@ -101,11 +101,13 @@
             <!-- Task Form -->
             <div class="card mb-4">
                 <div class="card-body">
-                    <form id="taskForm" class="d-flex gap-2 needs-validation" novalidate>
-                        <input name="task-item" type="text" id="taskInput" placeholder="Add a new task..."
-                            class="form-control" data-task-id="0" />
-                        <div class="invalid-feedback">
-                            Please provide a valid city.
+                    <form id="taskForm" class="d-flex align-items-start gap-2 needs-validation" novalidate>
+                        <div class="col d-flex flex-column">
+                            <input name="task-item" type="text" id="taskInput" placeholder="Add a new task..."
+                                class="form-control" data-task-id="0" minlength="5" maxlength="100" required />
+                            <div class="invalid-feedback">
+                                Please provide a text for the task (between 5 and 100 characters).
+                            </div>
                         </div>
                         <button type="submit" class="btn btn-primary d-flex align-items-center gap-2 text-nowrap">
                             <i class="bi bi-plus-lg add-task"></i>

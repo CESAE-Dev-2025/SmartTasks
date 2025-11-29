@@ -54,6 +54,11 @@ let appTexts = [
         pt: "Tarefas Concluídas",
     },
     {
+        selector: ".invalid-feedback",
+        en: "Please provide a text for the task (between 5 and 100 characters).",
+        pt: "Por favor digiteum texto válido para a tarefa (entre 5 e 100 characteres).",
+    },
+    {
         selector: "#taskForm input",
         en: "Add a new task...",
         pt: "Adicione nova tarefa...",
@@ -381,26 +386,27 @@ function addTask(formData) {
 function handleTask(e) {
     e.preventDefault();
 
-    let formData = new FormData(e.target);
-    let taskId = taskInput.getAttribute("data-task-id");
-    let taskText = formData.get("task-item").trim();
-    if (taskText.length < 5) {
-        // TODO: Validar input
-        return;
-    }
-
-    if (taskId == 0) {
-        // Nova tarefa
-        addTask(formData);
-        // TODO: Mostrar aviso de adição em toast
+    if (!taskForm.checkValidity()) {
+        e.preventDefault();
+        e.stopPropagation();
+        taskForm.classList.add("was-validated");
     } else {
-        // Tarefa existente
-        updateTask(taskId, formData);
-        // TODO: Mostrar aviso de edição em toast
-    }
+        let formData = new FormData(taskForm);
+        let taskId = taskInput.getAttribute("data-task-id");
 
-    e.target.reset();
-    handleEmptyState();
+        if (taskId == 0) {
+            // Nova tarefa
+            addTask(formData);
+            // TODO: Mostrar aviso de adição em toast
+        } else {
+            // Tarefa existente
+            updateTask(taskId, formData);
+            // TODO: Mostrar aviso de edição em toast
+        }
+        taskForm.classList.remove("was-validated");
+        taskForm.reset();
+        handleEmptyState();
+    }
 }
 
 function removeTaskById(taskId) {
