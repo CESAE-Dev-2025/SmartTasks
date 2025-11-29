@@ -11,7 +11,7 @@
     </a>
   
   
-  <p align="center">Torne-se o mestre da ação. Gerencie suas tarefas de forma simples, rápida e intuitiva!<br>Use SmartTask!
+  <p align="center">Torne-se o mestre da ação. Gerencie suas tarefas de forma simples, rápida e intuitiva!<br>Use SmartTasks!
     <br />
     <a href="https://cesae-dev-2025.github.io/SmartTasks/"><strong>Veja a Demo</strong></a>
     <br />
@@ -48,7 +48,7 @@
 <!-- ABOUT THE PROJECT -->
 ## Sobre o Projecto
 
-<img src="images/screenshot_cover.png" style="width: 520px" alt="SmartTask Screenshot">
+<img src="images/screenshot_cover.png" style="width: 520px" alt="SmartTasks Screenshot">
 
 Esse projeto apresenta uma ferramenta de gestão inteligente (e simples) de tarefas. É composto por uma única página e faz uso dos recurso locais do seu browser.
 
@@ -73,33 +73,33 @@ Por fim, a aplicação possui 2 idiomas disponíveis:
 #### Temas em Inglês
 
 <p>
-  <img src="images/screenshot_dark_en.png" style="width: 430px" alt="Dark Mode">
+  <img src="images/screenshot_dark_en.png" style="width: 390px" alt="Dark Mode">
     &nbsp;&nbsp;&nbsp;
-  <img src="images/screenshot_light_en.png" style="width: 430px" alt="Light Mode">
+  <img src="images/screenshot_light_en.png" style="width: 390px" alt="Light Mode">
 </p>
 
 #### Temas em Português
 
 <p>
-  <img src="images/screenshot_dark_pt.png" style="width: 430px" alt="Tema escuro">
+  <img src="images/screenshot_dark_pt.png" style="width: 390px" alt="Tema escuro">
     &nbsp;&nbsp;&nbsp;
-  <img src="images/screenshot_light_pt.png" style="width: 430px" alt="Tema Claro">
+  <img src="images/screenshot_light_pt.png" style="width: 390px" alt="Tema Claro">
 </p>
 
 #### Filtros
 
 <p>
-  <img src="images/screenshot_light_en_active.png" style="width: 430px" alt="Filtro por tarefas activas">
+  <img src="images/screenshot_light_en_active.png" style="width: 390px" alt="Filtro por tarefas activas">
     &nbsp;&nbsp;&nbsp;
-  <img src="images/screenshot_light_en_completed.png" style="width: 430px" alt="Filtro por tarefas concluídas">
+  <img src="images/screenshot_light_en_completed.png" style="width: 390px" alt="Filtro por tarefas concluídas">
 </p>
 
 #### Validação e notificação
 
 <p>
-  <img src="images/screenshot_light_en_validation.png" style="width: 430px" alt="Tema escuro">
+  <img src="images/screenshot_light_en_validation.png" style="width: 390px" alt="Tema escuro">
     &nbsp;&nbsp;&nbsp;
-  <img src="images/screenshot_light_en_toast.png" style="width: 430px" alt="Tema Claro">
+  <img src="images/screenshot_light_en_toast.png" style="width: 390px" alt="Tema Claro">
 </p>
 
 <p align="right">(<a href="#readme-top">voltar ao topo</a>)</p>
@@ -134,7 +134,7 @@ Para utilizar este projeto, basta clonar o repositório.
 
 1. Clone o repositório
    ```sh
-   git clone https://github.com/CESAE-Dev-2025/SmartTask.git
+   git clone https://github.com/CESAE-Dev-2025/SmartTasks.git
    ```
 2. Modifique a URL do git remote para evitar `pushes` acidentais para o projeto base
    ```sh
@@ -154,7 +154,7 @@ Para utilizar este projeto, basta clonar o repositório.
 - [ ] Utilizar um Framework que permita reaproveitar componentes
 - [ ] Adicionar formas de exportar dados
 
-Veja os ['issues' abertos](https://github.com/cesae-dev-2025/SmartTask/issues) para obter uma lista completa e atualizadas das funcionalidades propostas e bugs conhecidos.
+Veja os ['issues' abertos](https://github.com/cesae-dev-2025/SmartTasks/issues) para obter uma lista completa e atualizadas das funcionalidades propostas e bugs conhecidos.
 
 <p align="right">(<a href="#readme-top">voltar ao topo</a>)</p>
 
@@ -175,7 +175,7 @@ Distribuido sob a Licença MIT. veja `LICENSE.txt` para mais informações.
     <a href = "https://www.linkedin.com/in/leandro-assis-gabriel/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a>
 </p>
 
-Link do Projeto: [https://github.com/CESAE-Dev-2025/SmartTask](https://github.com/CESAE-Dev-2025/SmartTask)
+Link do Projeto: [https://github.com/CESAE-Dev-2025/SmartTasks](https://github.com/CESAE-Dev-2025/SmartTasks)
 
 <p align="right">(<a href="#readme-top">voltar ao topo</a>)</p>
 
@@ -200,8 +200,8 @@ Agradeço também aos mantenedores dos projetos listados abaixo:
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [product-screenshot]: ./images/screenshot_cover.png
 
-[license-shield]: https://img.shields.io/github/license/CESAE-Dev-2025/SmartTask.svg?style=for-the-badge
-[license-url]: https://github.com/CESAE-Dev-2025/SmartTask/blob/master/LICENSE.txt
+[license-shield]: https://img.shields.io/github/license/CESAE-Dev-2025/SmartTasks.svg?style=for-the-badge
+[license-url]: https://github.com/CESAE-Dev-2025/SmartTasks/blob/master/LICENSE.txt
 
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=blue
 [linkedin-url]: https://linkedin.com/in/leandro-assis-gabriel
