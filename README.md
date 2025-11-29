@@ -6,15 +6,14 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-    <a href="https://github.com/cesae-dev-2025/SmartTask/">
+    <a href="https://github.com/cesae-dev-2025/SmartTasks/">
         <img src="images/logo.png" alt="Logo" height="70">
     </a>
   
   
-<!-- TODO: Publicar Github Pages -->
   <p align="center">Torne-se o mestre da ação. Gerencie suas tarefas de forma simples, rápida e intuitiva!<br>Use SmartTask!
     <br />
-    <a href="https://cesae-dev-2025.github.io/SmartTask/"><strong>Veja a Demo</strong></a>
+    <a href="https://cesae-dev-2025.github.io/SmartTasks/"><strong>Veja a Demo</strong></a>
     <br />
   </p>
 </div>
@@ -149,7 +148,9 @@ Para utilizar este projeto, basta clonar o repositório.
 <!-- ROADMAP -->
 ## Roadmap
 
-- [x] Adicionar API de LocalStorage/IndexedDB
+- [x] Adicionar API de LocalStorage/~~IndexedDB~~
+- [x] Adicionar internacionalização (i18n)
+- [x] Adicionar validação
 - [ ] Utilizar um Framework que permita reaproveitar componentes
 - [ ] Adicionar formas de exportar dados
 
