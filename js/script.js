@@ -297,8 +297,11 @@ function renderTask(itemToRender) {
     updateStatistics();
 }
 
+function getTaskIndex(taskId) {
+    return tasks.indexOf(tasks.find((item) => item.id == taskId));
+}
+
 function editTask() {
-    // TODO: Organizar código de edição
     let currentCard = this.parentElement.parentElement.parentElement;
     let currentTask = {
         id: currentCard.getAttribute("data-task-id"),
@@ -306,14 +309,12 @@ function editTask() {
         completed: currentCard.querySelector(".task-checkbox").checked,
     };
 
-    let currentTaskIndex = tasks.indexOf(
-        tasks.find((item) => item.id == currentTask.id)
-    );
+    let currentTaskIndex = getTaskIndex(currentTask.id);
 
     currentCard.classList.add("d-none");
     for (const child of taskList.children) {
         let childId = child.getAttribute("data-task-id");
-        console.log(child);
+
         if (childId != currentTask.id) {
             child.setAttribute("style", "pointer-events:none");
         }
@@ -322,12 +323,59 @@ function editTask() {
     taskInput.setAttribute("data-task-id", currentTask.id);
     taskInput.setAttribute("data-task-index", currentTaskIndex);
     taskInput.value = currentTask.text;
+
     taskForm
         .querySelectorAll(".add-task")
         .forEach((item) => item.classList.add("d-none"));
     taskForm
         .querySelectorAll(".update-task")
         .forEach((item) => item.classList.remove("d-none"));
+}
+
+function updateTask(taskId, formData) {
+    let currentTask = {
+        id: taskId,
+        text: formData.get("task-item"),
+        completed: taskInput.getAttribute("data-completed"),
+    };
+
+    let currentTaskIndex = getTaskIndex(currentTask.id);
+    tasks[currentTaskIndex].text = currentTask.text;
+
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+
+    for (const child of taskList.children) {
+        let childId = child.getAttribute("data-task-id");
+        if (childId == taskId) {
+            child.querySelector(".task-text").textContent = currentTask.text;
+
+            child.classList.remove("d-none");
+        }
+        child.setAttribute("style", "pointer-events:auto");
+    }
+    taskInput.setAttribute("data-task-id", "");
+    taskInput.setAttribute("data-task-index", 0);
+
+    taskForm
+        .querySelectorAll(".add-task")
+        .forEach((item) => item.classList.remove("d-none"));
+    taskForm
+        .querySelectorAll(".update-task")
+        .forEach((item) => item.classList.add("d-none"));
+}
+
+function addTask(formData) {
+    let newTask = {
+        id: currentId,
+        text: formData.get("task-item"),
+        completed: false,
+    };
+    tasks.push(newTask);
+
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+    localStorage.setItem("currentId", currentId++);
+
+    renderTask(newTask);
 }
 
 function handleTask(e) {
@@ -337,60 +385,20 @@ function handleTask(e) {
     let taskId = taskInput.getAttribute("data-task-id");
     let taskText = formData.get("task-item").trim();
     if (taskText.length < 5) {
-        // TODO: Mostrar aviso em toast
+        // TODO: Validar input
         return;
     }
 
     if (taskId == 0) {
         // Nova tarefa
-        let newTask = {
-            id: currentId,
-            text: formData.get("task-item"),
-            completed: false,
-        };
-        tasks.push(newTask);
-
-        localStorage.setItem("tasks", JSON.stringify(tasks));
-        localStorage.setItem("currentId", currentId++);
-
-        renderTask(newTask);
+        addTask(formData);
+        // TODO: Mostrar aviso de adição em toast
     } else {
         // Tarefa existente
-        let currentTask = {
-            id: taskId,
-            text: formData.get("task-item"),
-            completed: taskInput.getAttribute("data-completed"),
-        };
-
-        let currentTaskIndex = tasks.indexOf(
-            tasks.find((item) => item.id == currentTask.id)
-        );
-        tasks[currentTaskIndex].text = currentTask.text;
-
-        localStorage.setItem("tasks", JSON.stringify(tasks));
-
-        for (const child of taskList.children) {
-            let childId = child.getAttribute("data-task-id");
-            if (childId == taskId) {
-                child.querySelector(".task-text").textContent =
-                    currentTask.text;
-
-                child.classList.remove("d-none");
-            }
-            child.setAttribute("style", "pointer-events:auto");
-        }
-        taskInput.setAttribute("data-task-id", "");
-        taskInput.setAttribute("data-task-index", 0);
-
-        taskForm
-            .querySelectorAll(".add-task")
-            .forEach((item) => item.classList.remove("d-none"));
-        taskForm
-            .querySelectorAll(".update-task")
-            .forEach((item) => item.classList.add("d-none"));
+        updateTask(taskId, formData);
+        // TODO: Mostrar aviso de edição em toast
     }
 
-    // TODO: Mostrar aviso de adição/edição em toast
     e.target.reset();
     handleEmptyState();
 }
@@ -485,6 +493,7 @@ function startupActions() {
     updateLocale();
     tasks = JSON.parse(localStorage.getItem("tasks")) || [];
     currentId = 1;
+    // TODO: Mover HTML para index.html
     taskItem = `
     <div class="card mb-2 task-item" data-task-id="" data-completed="false">
         <div class="card-body d-flex align-items-center gap-3">
