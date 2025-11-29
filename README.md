@@ -49,8 +49,7 @@
 <!-- ABOUT THE PROJECT -->
 ## Sobre o Projecto
 
-<!-- TODO: Adicionar captura de tela -->
-![SmartTask Screenshot][product-screenshot]
+<img src="images/screenshot_cover.png" style="max-width: 520px" alt="SmartTask Screenshot">
 
 Esse projeto apresenta uma ferramenta de gestão inteligente (e simples) de tarefas. É composto por uma única página e faz uso dos recurso locais do seu browser.
 
@@ -58,43 +57,51 @@ Aqui podes:
 
 1. Adicionar novas tarefas
 2. Editar tarefas existentes
-3. Marcar tarefa scomo concluídas
+3. Marcar tarefas como concluídas
 4. Eliminar tarefas
 5. Filtrar tarefas
 
+A aplicação possui 2 temas:
+- Tema claro (Light Mode)
+- Tema escuro (Dark Mode)
+
+Por fim, a aplicação possui 2 idiomas disponíveis:
+- Inglês
+- Português
+
 ### Capturas de ecrã
 
-#### Web
+#### Temas em Inglês
 
-<!-- TODO: Adicionar capturar de tela -->
-<!-- <p style="display: flex; justify-content: space-between; align-items: start;">
-  <img src="images/SmartTask_home.png" style="width: 45%;height:736px; " alt="Página inicial">
-  <img src="images/SmartTask_games.png" style="width: 45%;height:736px;" alt="Jogos">
-</p>
-<br>
-<p style="display: flex; justify-content: space-between;">
-  <img src="images/SmartTask_events.png" style="width: 45%;height:717px;" alt="Eventos">
-  <img src="images/SmartTask_forum.png" style="width: 45%;height:717px;" alt="Fórum">
-</p>
-<br>
-<p style="display: flex; justify-content: space-between;">
-  <img src="images/SmartTask_store.png" style="width: 45%;height:762px;" alt="Loja">
-  <img src="images/SmartTask_contact.png" style="width: 45%;height:762px;" alt="Contato">
+<p style="display: flex; justify-content: space-around; align-items: start;margin-bottom:20px">
+  <img src="images/screenshot_dark_en.png" style="max-width: 480px" alt="Dark Mode">
+  <img src="images/screenshot_light_en.png" style="max-width: 480px" alt="Light Mode">
 </p>
 
-#### Mobile
+#### Temas em Português
 
-<p style="display: flex; justify-content: space-between;">
-  <img src="images/SmartTask_home_mobile.png" style="width: 30%;height:3117px;" alt="Página inicial">
-  <img src="images/SmartTask_games_mobile.png" style="width: 30%;height:3117px;object-fit: cover" alt="Jogos">
-  <img src="images/SmartTask_events_mobile.png" style="width: 30%;height:3117px;" alt="Eventos">
+<p style="display: flex; justify-content: space-around; align-items: start;margin-bottom:20px">
+  <img src="images/screenshot_dark_pt.png" style="max-width: 480px" alt="Tema escuro">
+  <img src="images/screenshot_light_pt.png" style="max-width: 480px" alt="Tema Claro">
 </p>
-<br>
-<p style="display: flex; justify-content: space-between;">
-  <img src="images/SmartTask_forum_mobile.png" style="width: 30%;height:3024px;" alt="Fórum">
-  <img src="images/SmartTask_store_mobile.png" style="width: 30%;height:3024px;" alt="Loja">
-  <img src="images/SmartTask_contact_mobile.png" style="width: 30%;height:3024px;" alt="Contato">
-</p> -->
+<p style="display: flex; justify-content: space-around; align-items: start;margin-bottom:20px">
+  <img src="images/screenshot_dark_pt.png" style="max-width: 480px" alt="Tema escuro">
+  <img src="images/screenshot_light_pt.png" style="max-width: 480px" alt="Tema Claro">
+</p>
+
+#### Filtros
+
+<p style="display: flex; justify-content: space-around; align-items: start;margin-bottom:20px">
+  <img src="images/screenshot_light_en_active.png" style="max-width: 480px" alt="Filtro por tarefas activas">
+  <img src="images/screenshot_light_en_completed.png" style="max-width: 480px" alt="Filtro por tarefas concluídas">
+</p>
+
+#### Validação e notificação
+
+<p style="display: flex; justify-content: space-around; align-items: start;margin-bottom:20px">
+  <img src="images/screenshot_light_en_validation.png" style="max-width: 480px" alt="Tema escuro">
+  <img src="images/screenshot_light_en_toast.png" style="max-width: 480px" alt="Tema Claro">
+</p>
 
 <p align="right">(<a href="#readme-top">voltar ao topo</a>)</p>
 
@@ -190,7 +197,7 @@ Agradeço também aos mantenedores dos projetos listados abaixo:
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[product-screenshot]: ./images/index-hero-bg.png
+[product-screenshot]: ./images/screenshot_cover.png
 
 [license-shield]: https://img.shields.io/github/license/CESAE-Dev-2025/SmartTask.svg?style=for-the-badge
 [license-url]: https://github.com/CESAE-Dev-2025/SmartTask/blob/master/LICENSE.txt

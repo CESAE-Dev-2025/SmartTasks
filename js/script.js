@@ -517,7 +517,7 @@ function addTestData() {
     ];
     currentId = 4;
     testTasks.forEach((item) => tasks.push(item));
-    tasks.forEach((task) => renderTask(task));
+    // tasks.forEach((task) => renderTask(task));
 }
 
 // ------------------------------ Notifications -------------------------------
@@ -559,6 +559,8 @@ function startupActions() {
     taskItem = taskList.querySelector(".task-item");
     taskItem.remove();
 
+    addTestData();
+
     if (tasks.length > 0) {
         tasks.forEach((task) => renderTask(task));
         currentId += getLastId();
@@ -568,8 +570,6 @@ function startupActions() {
     setInterval(updateDateTime, 60000);
     updateQuote();
     setInterval(updateQuote, 300000);
-
-    // addTestData();
 
     localStorage.setItem("tasks", JSON.stringify(tasks));
     localStorage.setItem("currentId", currentId);
