@@ -87,19 +87,19 @@
 
 /***                                                                    Language styles */
 .lang-pt {
-    display: inline-block;
+    display: none;
 }
 
 .lang-en {
-    display: none;
+    display: inline-block;
 }
 
 [lang="pt"] .lang-pt {
-    display: none;
+    display: inline-block !important;
 }
 
 [lang="pt"] .lang-en {
-    display: inline-block !important;
+    display: none;
 }
 /****************************************************************************************/
 
